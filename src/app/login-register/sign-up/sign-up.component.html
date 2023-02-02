@@ -1,0 +1,87 @@
+<div>
+  <div class="container">
+    <div class="img">
+      <img src="../../../assets/images/sign-in/3094352.jpg" alt="">
+    </div>
+    <div class="login-content">
+      <form [formGroup]="userRegisterForm">
+        <img src="../../../assets/images/sign-in/bg.svg" alt="">
+        <h2 class="title">User Register</h2>
+        <div class="input-div one">
+          <div class="i">
+            <div class="i">
+              <mat-icon>person</mat-icon>
+            </div>
+          </div>
+          <div class="div">
+            <input formControlName="name"
+                   type="text" class="input" placeholder="Name">
+            <app-msg-validate *ngIf="userRegisterForm.get('name')?.errors?.['required']"
+                              classSend="required-error"
+                              msgValidate="Name is Required.">
+            </app-msg-validate>
+            <app-msg-validate *ngIf="userRegisterForm.get('name')?.errors?.['minlength']"
+                              classSend="required-error"
+                              msgValidate="Name minlength 5.">
+            </app-msg-validate>
+          </div>
+        </div>
+        <div class="input-div one">
+          <div class="i">
+            <div class="i">
+              <mat-icon>alternate_email</mat-icon>
+            </div>
+          </div>
+          <div class="div">
+            <input formControlName="email"
+                   type="text" class="input" placeholder="Email">
+            <app-msg-validate *ngIf="userRegisterForm.get('email')?.errors?.['required']"
+                              classSend="required-error"
+                              msgValidate="Email is Required.">
+            </app-msg-validate>
+            <app-msg-validate *ngIf="userRegisterForm.get('email')?.errors?.['email']"
+                              classSend="required-error"
+                              msgValidate="Email invalid.">
+            </app-msg-validate>
+          </div>
+        </div>
+        <div class="input-div pass">
+          <div class="i">
+            <mat-icon>11mp</mat-icon>
+          </div>
+          <div class="div">
+            <input formControlName="cpf" class="input" placeholder="CPF">
+            <app-msg-validate *ngIf="userRegisterForm.get('cpf')?.errors?.['required']"
+                              classSend="required-error"
+                              msgValidate="CPF is Required.">
+            </app-msg-validate>
+            <app-msg-validate *ngIf="userRegisterForm.get('cpf')?.errors?.['minlength']"
+                              classSend="required-error"
+                              msgValidate="CPF length invalid.">
+            </app-msg-validate>
+          </div>
+        </div>
+        <div class="input-div pass">
+          <div class="i">
+            <mat-icon>lock</mat-icon>
+          </div>
+          <div class="div">
+            <input formControlName="password" type="password" class="input" placeholder="password">
+            <app-msg-validate *ngIf="userRegisterForm.get('password')?.errors?.['required']"
+                              classSend="required-error"
+                              msgValidate="Password is Required.">
+            </app-msg-validate>
+            <app-msg-validate *ngIf="userRegisterForm.get('password')?.errors?.['minlength']"
+                              classSend="required-error"
+                              msgValidate="Password min length 4.">
+            </app-msg-validate>
+          </div>
+        </div>
+        <button (click)="registerUser()" [disabled]="userRegisterForm.invalid" type="submit"
+                [ngClass]="userRegisterForm.invalid ? 'btn-disable' : 'btn'">Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+

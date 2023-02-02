@@ -1,0 +1,13 @@
+.required-error {
+  font-family: 'Poppins', sans-serif;
+  color: red;
+  font-size: 12px;
+  font-style: inherit;
+  padding-top: 10px;
+  padding-left: 140px;
+}
+
+.invalid-login-password {
+  font-family: 'Poppins', sans-serif;
+  color: red;
+}

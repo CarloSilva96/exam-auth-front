@@ -1,0 +1,6 @@
+<mat-toolbar *ngIf="logged" color="primary">
+  <span>{{titleHeader}}</span>
+  <div class="spacer"></div>
+  <button mat-button> {{(user$ | async)?.name}} </button>
+  <button (click)="logoutUser()" mat-button> Logout </button>
+</mat-toolbar>

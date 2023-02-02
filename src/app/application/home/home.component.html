@@ -1,0 +1,29 @@
+<div>
+  <h1 style="align-items: center">Fake Tasks</h1>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- ID -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.id }} </mat-cell>
+    </ng-container>
+
+    <!-- NOME -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let task"> {{ task.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let task"> {{ task.description }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="fieldsTable"></mat-header-row>
+    <mat-row *matRowDef="let task; columns: fieldsTable"></mat-row>
+  </mat-table>
+
+</div>
+
+
+
+

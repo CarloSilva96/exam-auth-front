@@ -1,0 +1,60 @@
+<div>
+  <div class="container">
+    <div class="img">
+      <img src="../../../assets/images/sign-in/3094352.jpg" alt="">
+    </div>
+    <div class="login-content">
+      <form [formGroup]="userLoginForm">
+        <img src="../../../assets/images/sign-in/bg.svg" alt="">
+        <h2 class="title">User Login</h2>
+        <div class="input-div one">
+          <div class="i">
+            <div class="i">
+              <mat-icon>person</mat-icon>
+            </div>
+          </div>
+          <div class="div">
+            <input (change)="updateStatusLoginOrPasswordInvalid()"
+              #loginInput
+                   formControlName="login"
+                   type="text" class="input" placeholder="Email or CPF">
+            <app-msg-validate *ngIf="userLoginForm.get('login')?.errors?.['required']"
+                              classSend="required-error"
+                              msgValidate="Login Required.">
+            </app-msg-validate>
+          </div>
+        </div>
+        <div class="input-div pass">
+          <div class="i">
+            <mat-icon>lock</mat-icon>
+          </div>
+          <div class="div">
+            <input  (change)="updateStatusLoginOrPasswordInvalid()"
+                    formControlName="password" type="password" class="input" placeholder="password">
+            <app-msg-validate *ngIf="userLoginForm.get('password')?.errors?.['required']"
+                              classSend="required-error"
+                              msgValidate="Password Required.">
+            </app-msg-validate>
+            <app-msg-validate *ngIf="userLoginForm.get('password')?.errors?.['minlength']"
+                              classSend="required-error"
+                              msgValidate="Min size password of 4.">
+            </app-msg-validate>
+          </div>
+        </div>
+        <div class="div">
+          <app-msg-validate *ngIf="loginOrPasswordInvalid"
+                            classSend="invalid-login-password"
+                            msgValidate="Login or password invalid.">
+          </app-msg-validate>
+        </div>
+        <button (click)="loginUser()" [disabled]="userLoginForm.invalid" type="submit"
+                [ngClass]="userLoginForm.invalid ? 'btn-disable' : 'btn'">Login
+        </button>
+        <div>
+          <button class="btn-register" [routerLink]="['register']" >Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
